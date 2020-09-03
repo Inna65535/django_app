@@ -1,3 +1,4 @@
+#File Top
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import redirect
@@ -91,3 +92,4 @@ def check(request):
         else:
             params['message'] = 'no good.'
     return render(request, 'hello/check.html', params)
+#File Bottom
