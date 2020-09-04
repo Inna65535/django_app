@@ -1,27 +1,18 @@
 from django import forms
-from.models import Friend
 
 class HelloForm(forms.Form):
-    name = forms.CharField(label='Name', \
-        widget=forms.TextInput(attrs={'class':'form-control'}))
-    mail = forms.EmailField(label='Email', \
-        widget=forms.EmailInput(attrs={'class':'form-control'}))
-    gender = forms.BooleanField(label='Gender', required=False, \
-        widget=forms.CheckboxInput(attrs={'class':'form-check'}))
-    age = forms.IntegerField(label='Age', \
-        widget=forms.NumberInput(attrs={'class':'form-control'}))
-    birthday = forms.DateField(label='Birth', \
-        widget=forms.DateInput(attrs={'class':'form-control'}))
-
-class FriendForm(forms.ModelForm):
-    class Meta:
-        model = Friend
-        fields = ['name','mail','gender','age','birthday']
-
-class FindForm(forms.Form):
-    find = forms.CharField(label='Find', required=False, \
-        widget=forms.TextInput(attrs={'class':'form-control'}))
-
-class CheckForm(forms.Form):
-    str = forms.CharField(label='Name',\
-        widget=forms.TextInput(attrs={'class':'form-control'}))
+    data=[
+        ('ラーメン', '１：ラーメン'),
+        ('うどん', '２：うどん'),
+        ('そば', '３：そば'),
+        ('パスタ', '４：パスタ'),
+        ('チャーハン', '５：チャーハン'),
+        ('すし', '６：すし'),
+        ('ステーキ', '７：ステーキ'),
+        ('うなぎ', '８：うなぎ'),
+        ('とんかつ', '９：とんかつ'),
+        ('焼肉', '１０：焼肉'),
+        ('断食', '１１：断食')
+    ]
+    choice = forms.MultipleChoiceField(label='あながた食べたいのは', \
+        choices=data, widget=forms.SelectMultiple(attrs={'size': 6}))
